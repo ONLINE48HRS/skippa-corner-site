@@ -1,0 +1,720 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SKIPPA CORNER | Premium T-Shirts & Custom Designs</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+--red:#E61E2A;
+--red-dark:#C41822;
+--black:#0A0A0A;
+--dark:#1A1A1A;
+--grey:#2D2D2D;
+--light:#F5F5F5;
+--white:#FFFFFF;
+--transition:all .3s cubic-bezier(.4,0,.2,1)
+}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;color:var(--black);background:var(--white);line-height:1.6;overflow-x:hidden}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+img{max-width:100%;display:block}
+.container{width:100%;max-width:1200px;margin:0 auto;padding:0 20px}
+section{padding:80px 0}
+
+/* HEADER */
+.header{position:fixed;top:0;left:0;width:100%;z-index:1000;background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-bottom:1px solid rgba(0,0,0,.06);transition:var(--transition)}
+.header.scrolled{box-shadow:0 2px 30px rgba(0,0,0,.08)}
+.header-inner{display:flex;align-items:center;justify-content:space-between;height:70px}
+.logo{display:flex;flex-direction:column;line-height:1}
+.logo-main{font-size:1.75rem;font-weight:900;letter-spacing:-1px;color:var(--black)}
+.logo-main .logo-i{color:var(--red)}
+.logo-sub{font-size:.7rem;font-weight:600;letter-spacing:3px;text-transform:uppercase;color:var(--grey);margin-top:-2px}
+.nav{display:flex;align-items:center;gap:32px}
+.nav-links{display:flex;gap:28px}
+.nav-links a{font-size:.875rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--dark);position:relative;padding:4px 0;transition:var(--transition)}
+.nav-links a::after{content:'';position:absolute;bottom:0;left:0;width:0;height:2px;background:var(--red);transition:var(--transition)}
+.nav-links a:hover{color:var(--red)}
+.nav-links a:hover::after{width:100%}
+.btn-wa{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--white);padding:10px 22px;border-radius:50px;font-size:.85rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:var(--transition);border:2px solid var(--red)}
+.btn-wa:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 25px rgba(230,30,42,.3)}
+.btn-wa svg{width:18px;height:18px;fill:currentColor}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px;z-index:1001}
+.hamburger span{display:block;width:26px;height:2.5px;background:var(--black);border-radius:2px;transition:var(--transition)}
+.hamburger.active span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+
+/* HERO */
+.hero{position:relative;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden;background:var(--black)}
+.hero-bg{position:absolute;inset:0;background:url('https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/10e55ede9-85b9-4e65-85b5-61cef84412eb.png') center/cover no-repeat;opacity:.35;transition:var(--transition)}
+.hero-overlay{position:absolute;inset:0;background:linear-gradient(135deg,rgba(10,10,10,.92) 0%,rgba(10,10,10,.7) 50%,rgba(230,30,42,.15) 100%)}
+.hero-content{position:relative;z-index:2;text-align:center;padding:0 20px;max-width:800px}
+.hero-badge{display:inline-block;background:var(--red);color:var(--white);padding:8px 20px;border-radius:50px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:24px;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(230,30,42,.4)}50%{box-shadow:0 0 0 12px rgba(230,30,42,0)}}
+.hero h1{font-size:clamp(2.2rem,6vw,4rem);font-weight:900;color:var(--white);line-height:1.1;margin-bottom:20px;letter-spacing:-1px}
+.hero h1 span{color:var(--red)}
+.hero p{font-size:clamp(1rem,2.5vw,1.25rem);color:rgba(255,255,255,.7);margin-bottom:36px;max-width:600px;margin-left:auto;margin-right:auto}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--red);color:var(--white);padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:var(--transition);border:2px solid var(--red)}
+.btn-primary:hover{background:var(--red-dark);border-color:var(--red-dark);transform:translateY(-2px);box-shadow:0 10px 30px rgba(230,30,42,.35)}
+.btn-outline{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--white);padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:var(--transition);border:2px solid rgba(255,255,255,.3)}
+.btn-outline:hover{border-color:var(--white);background:rgba(255,255,255,.08);transform:translateY(-2px)}
+.hero-stats{display:flex;gap:40px;justify-content:center;margin-top:50px;padding-top:40px;border-top:1px solid rgba(255,255,255,.1)}
+.stat{text-align:center}
+.stat-num{font-size:1.8rem;font-weight:900;color:var(--red)}
+.stat-label{font-size:.75rem;color:rgba(255,255,255,.5);text-transform:uppercase;letter-spacing:1px;margin-top:4px}
+
+/* SECTION TITLES */
+.section-header{text-align:center;margin-bottom:50px}
+.section-tag{display:inline-block;background:rgba(230,30,42,.1);color:var(--red);padding:6px 16px;border-radius:50px;font-size:.75rem;font-weight:700;text-transform:uppercase;letter-spacing:2px;margin-bottom:12px}
+.section-header h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--black);letter-spacing:-1px}
+.section-header p{font-size:1.05rem;color:#666;margin-top:12px;max-width:550px;margin-left:auto;margin-right:auto}
+
+/* PRODUCTS */
+.products{background:var(--light)}
+.products-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px}
+.product-card{background:var(--white);border-radius:16px;overflow:hidden;transition:var(--transition);position:relative;group:true}
+.product-card:hover{transform:translateY(-6px);box-shadow:0 20px 50px rgba(0,0,0,.1)}
+.product-img{position:relative;overflow:hidden;aspect-ratio:1/1;background:#eee}
+.product-img img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.product-card:hover .product-img img{transform:scale(1.05)}
+.product-badge{position:absolute;top:12px;left:12px;background:var(--red);color:var(--white);padding:4px 12px;border-radius:50px;font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px}
+.product-info{padding:16px 18px 18px}
+.product-name{font-size:.95rem;font-weight:700;color:var(--black);margin-bottom:6px}
+.product-price{font-size:1.1rem;font-weight:900;color:var(--red);margin-bottom:14px}
+.product-price .old-price{font-size:.85rem;color:#aaa;text-decoration:line-through;font-weight:400;margin-left:6px}
+.btn-order{display:block;width:100%;text-align:center;background:var(--black);color:var(--white);padding:10px 16px;border-radius:10px;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;transition:var(--transition)}
+.btn-order:hover{background:var(--red)}
+.btn-order svg{width:14px;height:14px;fill:currentColor;vertical-align:-2px;margin-right:4px}
+
+/* PROMO BANNER */
+.promo{background:linear-gradient(135deg,var(--red) 0%,var(--red-dark) 100%);padding:60px 0;text-align:center;position:relative;overflow:hidden}
+.promo::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
+.promo-content{position:relative;z-index:1}
+.promo h2{font-size:clamp(2rem,5vw,3.2rem);font-weight:900;color:var(--white);margin-bottom:8px}
+.promo p{font-size:1.15rem;color:rgba(255,255,255,.85);margin-bottom:24px}
+.promo .btn-promo{display:inline-flex;align-items:center;gap:8px;background:var(--white);color:var(--red);padding:14px 36px;border-radius:50px;font-size:1rem;font-weight:800;text-transform:uppercase;letter-spacing:.5px;transition:var(--transition)}
+.promo .btn-promo:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(0,0,0,.2)}
+
+/* CUSTOM ORDERS */
+.custom-orders{background:var(--black);color:var(--white);position:relative;overflow:hidden}
+.custom-orders::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(230,30,42,.15) 0%,transparent 70%);border-radius:50%}
+.custom-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;position:relative;z-index:1}
+.custom-text .section-tag{background:rgba(230,30,42,.2)}
+.custom-text h2{font-size:clamp(1.8rem,4vw,2.8rem);font-weight:900;color:var(--white);margin-bottom:16px;letter-spacing:-1px}
+.custom-text p{color:rgba(255,255,255,.65);font-size:1.05rem;margin-bottom:28px;line-height:1.7}
+.feature-list{margin-bottom:32px}
+.feature-list li{display:flex;align-items:center;gap:12px;padding:10px 0;color:rgba(255,255,255,.85);font-size:.95rem}
+.feature-list li .check{width:24px;height:24px;background:rgba(230,30,42,.2);border-radius:50%;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.feature-list li .check svg{width:14px;height:14px;fill:var(--red)}
+.custom-visual{display:flex;justify-content:center;align-items:center}
+.custom-card{background:var(--grey);border-radius:20px;padding:40px;text-align:center;max-width:380px;width:100%;border:1px solid rgba(255,255,255,.06)}
+.custom-card-icon{width:80px;height:80px;background:rgba(230,30,42,.15);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.custom-card-icon svg{width:36px;height:36px;fill:var(--red)}
+.custom-card h3{font-size:1.3rem;font-weight:800;margin-bottom:10px}
+.custom-card p{color:rgba(255,255,255,.5);font-size:.9rem;margin-bottom:24px}
+.custom-card .btn-wa{width:100%;justify-content:center}
+
+/* WHY US */
+.why-us{background:var(--white)}
+.why-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px}
+.why-card{text-align:center;padding:36px 24px;border-radius:16px;background:var(--light);transition:var(--transition);border:1px solid transparent}
+.why-card:hover{background:var(--white);border-color:rgba(230,30,42,.15);transform:translateY(-4px);box-shadow:0 15px 40px rgba(0,0,0,.06)}
+.why-icon{width:56px;height:56px;background:rgba(230,30,42,.08);border-radius:14px;display:flex;align-items:center;justify-content:center;margin:0 auto 18px}
+.why-icon svg{width:26px;height:26px;fill:var(--red)}
+.why-card h3{font-size:1rem;font-weight:800;color:var(--black);margin-bottom:8px}
+.why-card p{font-size:.85rem;color:#888;line-height:1.6}
+
+/* CONTACT */
+.contact{background:var(--light)}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}
+.contact-info h3{font-size:1.4rem;font-weight:800;margin-bottom:20px;color:var(--black)}
+.contact-item{display:flex;align-items:flex-start;gap:14px;margin-bottom:24px}
+.contact-item-icon{width:44px;height:44px;background:rgba(230,30,42,.08);border-radius:12px;display:flex;align-items:center;justify-content:center;flex-shrink:0}
+.contact-item-icon svg{width:20px;height:20px;fill:var(--red)}
+.contact-item-text{font-size:.95rem;color:#555}
+.contact-item-text strong{display:block;color:var(--black);font-size:.85rem;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px}
+.contact-form{background:var(--white);border-radius:20px;padding:36px;box-shadow:0 10px 40px rgba(0,0,0,.04)}
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-size:.8rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--black);margin-bottom:6px}
+.form-group input,.form-group textarea{width:100%;padding:12px 16px;border:2px solid #eee;border-radius:10px;font-size:.95rem;font-family:inherit;transition:var(--transition);background:var(--light);color:var(--black)}
+.form-group input:focus,.form-group textarea:focus{outline:none;border-color:var(--red);background:var(--white)}
+.form-group textarea{resize:vertical;min-height:110px}
+.btn-submit{width:100%;padding:14px;background:var(--red);color:var(--white);border:none;border-radius:10px;font-size:1rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;cursor:pointer;transition:var(--transition)}
+.btn-submit:hover{background:var(--red-dark);transform:translateY(-2px);box-shadow:0 8px 25px rgba(230,30,42,.3)}
+
+/* FLOATING WA */
+.floating-wa{position:fixed;bottom:24px;right:24px;z-index:999;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);transition:var(--transition);animation:floatBounce 3s ease-in-out infinite}
+.floating-wa:hover{transform:scale(1.1);box-shadow:0 8px 30px rgba(37,211,102,.5)}
+.floating-wa svg{width:30px;height:30px;fill:var(--white)}
+@keyframes floatBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+
+/* FOOTER */
+.footer{background:var(--black);color:var(--white);padding:50px 0 30px}
+.footer-inner{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:20px}
+.footer-brand .logo-main{color:var(--white);font-size:1.5rem}
+.footer-brand p{color:rgba(255,255,255,.4);font-size:.85rem;margin-top:6px}
+.footer-links{display:flex;gap:24px}
+.footer-links a{color:rgba(255,255,255,.5);font-size:.85rem;transition:var(--transition)}
+.footer-links a:hover{color:var(--red)}
+.footer-bottom{text-align:center;padding-top:30px;margin-top:30px;border-top:1px solid rgba(255,255,255,.06);font-size:.8rem;color:rgba(255,255,255,.3)}
+
+/* MOBILE NAV */
+.mobile-nav{position:fixed;top:0;right:-100%;width:100%;height:100vh;background:var(--white);z-index:999;transition:right .4s cubic-bezier(.4,0,.2,1);display:flex;flex-direction:column;justify-content:center;align-items:center;gap:28px}
+.mobile-nav.open{right:0}
+.mobile-nav a{font-size:1.4rem;font-weight:800;text-transform:uppercase;letter-spacing:2px;color:var(--black);transition:var(--transition)}
+.mobile-nav a:hover{color:var(--red)}
+
+/* SCROLL ANIMATIONS */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .6s ease,transform .6s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* RESPONSIVE */
+@media(max-width:1024px){
+.products-grid{grid-template-columns:repeat(3,1fr)}
+.why-grid{grid-template-columns:repeat(2,1fr)}
+.custom-inner{grid-template-columns:1fr;text-align:center}
+.custom-visual{margin-top:20px}
+}
+@media(max-width:768px){
+.hamburger{display:flex}
+.nav{display:none}
+.products-grid{grid-template-columns:repeat(2,1fr);gap:14px}
+.contact-grid{grid-template-columns:1fr}
+.hero-stats{gap:24px}
+.stat-num{font-size:1.4rem}
+.section{padding:60px 0}
+.why-grid{grid-template-columns:1fr 1fr}
+.footer-inner{flex-direction:column;text-align:center}
+}
+@media(max-width:480px){
+.products-grid{grid-template-columns:1fr 1fr;gap:10px}
+.product-info{padding:12px 14px 14px}
+.product-name{font-size:.82rem}
+.product-price{font-size:.95rem;margin-bottom:10px}
+.btn-order{padding:8px 12px;font-size:.72rem}
+.hero-btns{flex-direction:column;align-items:center}
+.btn-primary,.btn-outline{width:100%;max-width:280px;justify-content:center}
+.hero-stats{flex-direction:column;gap:16px}
+.why-grid{grid-template-columns:1fr}
+}
+
+/* SCROLLBAR */
+::-webkit-scrollbar{width:8px}
+::-webkit-scrollbar-track{background:var(--light)}
+::-webkit-scrollbar-thumb{background:var(--grey);border-radius:4px}
+::-webkit-scrollbar-thumb:hover{background:var(--red)}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header class="header" id="header">
+<div class="container header-inner">
+<a href="#" class="logo">
+<span class="logo-main">SK<span class="logo-i">I</span>PPA</span>
+<span class="logo-sub">corner</span>
+</a>
+<nav class="nav">
+<div class="nav-links">
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#custom">Custom Orders</a>
+<a href="#contact">Contact</a>
+</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20a%20T-shirt" target="_blank" class="btn-wa">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</nav>
+<div class="hamburger" id="hamburger" onclick="toggleMenu()">
+<span></span><span></span><span></span>
+</div>
+</div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobileNav">
+<a href="#home" onclick="toggleMenu()">Home</a>
+<a href="#shop" onclick="toggleMenu()">Shop</a>
+<a href="#custom" onclick="toggleMenu()">Custom Orders</a>
+<a href="#contact" onclick="toggleMenu()">Contact</a>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20a%20T-shirt" target="_blank" class="btn-wa" onclick="toggleMenu()">
+<svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+<div class="hero-bg"></div>
+<div class="hero-overlay"></div>
+<div class="hero-content">
+<div class="hero-badge">🔥 15% OFF All T-Shirts</div>
+<h1>Premium T-Shirts.<br><span>Custom Designs.</span><br>Delivered.</h1>
+<p>Shop top brands or create your own custom T-shirt. Fresh styles, real vibes — straight from Soshanguve.</p>
+<div class="hero-btns">
+<a href="#shop" class="btn-primary">View Designs</a>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20a%20T-shirt" target="_blank" class="btn-outline">
+<svg style="width:18px;height:18px;fill:currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+<div class="hero-stats">
+<div class="stat">
+<div class="stat-num">500+</div>
+<div class="stat-label">Happy Customers</div>
+</div>
+<div class="stat">
+<div class="stat-num">200+</div>
+<div class="stat-label">Unique Designs</div>
+</div>
+<div class="stat">
+<div class="stat-num">5★</div>
+<div class="stat-label">Customer Rating</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- PRODUCTS -->
+<section class="products" id="shop">
+<div class="container">
+<div class="section-header reveal">
+<div class="section-tag">Our Collection</div>
+<h2>Shop Our Designs</h2>
+<p>Browse our latest T-shirt collection. Click to order directly on WhatsApp!</p>
+</div>
+<div class="products-grid">
+
+<!-- Product 1 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/149519687-5185-49bb-976e-d8b8cc9b5563.png" alt="Lion Print Tee" loading="lazy">
+</div>
+<div class="product-info">
+<div class="product-name">Lion Print Tee</div>
+<div class="product-price">R500</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Lion%20Print%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 2 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/1fb742bfb-32cb-48de-82e1-4bf779724011.png" alt="Tiger Print Tee" loading="lazy">
+<span class="product-badge">Popular</span>
+</div>
+<div class="product-info">
+<div class="product-name">Tiger Print Tee</div>
+<div class="product-price">R500</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Tiger%20Print%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 3 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/1e62cef5f-201e-4f9c-858b-d1ea08f62bab.png" alt="Pusta Respect Tee" loading="lazy">
+<span class="product-badge">-15%</span>
+</div>
+<div class="product-info">
+<div class="product-name">Pusta Respect Tee</div>
+<div class="product-price">R190 <span class="old-price">R220</span></div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Pusta%20Respect%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 4 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/1df4719ea-d939-4bf7-9e45-a1f0ff9d41b5.png" alt="Yin Yang Tee" loading="lazy">
+</div>
+<div class="product-info">
+<div class="product-name">Yin Yang Tee</div>
+<div class="product-price">R400</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Yin%20Yang%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 5 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/157f40b3e-6436-45bc-9da2-cf6a30954aae.png" alt="Skippa Corner Tee" loading="lazy">
+<span class="product-badge">New</span>
+</div>
+<div class="product-info">
+<div class="product-name">Skippa Corner Tee</div>
+<div class="product-price">R350</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Skippa%20Corner%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 6 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/193cdbbc2-05ed-486d-90fd-2f3e4be6e11d.png" alt="Abstract Graphic Tee" loading="lazy">
+</div>
+<div class="product-info">
+<div class="product-name">Abstract Graphic Tee</div>
+<div class="product-price">R280</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Abstract%20Graphic%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 7 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/1d2e616c7-4a11-4622-be80-253134d3e131.png" alt="Porsche Classic Tee" loading="lazy">
+<span class="product-badge">Hot</span>
+</div>
+<div class="product-info">
+<div class="product-name">Porsche Classic Tee</div>
+<div class="product-price">R500</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Porsche%20Classic%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 8 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/10dbe7adb-593e-42c1-9c5b-986ecf145be4.png" alt="Elephant Safari Tee" loading="lazy">
+</div>
+<div class="product-info">
+<div class="product-name">Elephant Safari Tee</div>
+<div class="product-price">R300</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Elephant%20Safari%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 9 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/191f8690f-ee78-4bd2-97a2-1804c4c1b5aa.png" alt="Spider-Man Tee" loading="lazy">
+<span class="product-badge">-15%</span>
+</div>
+<div class="product-info">
+<div class="product-name">Spider-Man Tee</div>
+<div class="product-price">R300 <span class="old-price">R350</span></div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Spider-Man%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 10 -->
+<div class="product-card reveal">
+<div class="product-img">
+<img src="https://image.qwenlm.ai/public_source/c49bfb13-e2ae-421a-a05c-686f46338a42/11e8dded4-93d3-4025-b18a-d6064abb92f8.png" alt="Replay Vintage Tee" loading="lazy">
+</div>
+<div class="product-info">
+<div class="product-name">Replay Vintage Tee</div>
+<div class="product-price">R380</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Replay%20Vintage%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 11 - CSS placeholder -->
+<div class="product-card reveal">
+<div class="product-img" style="background:linear-gradient(135deg,#1a1a1a 0%,#333 100%);display:flex;align-items:center;justify-content:center;">
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="opacity:.3"><path d="M40 10L10 30v20l30 20 30-20V30L40 10z" fill="white"/><path d="M40 10v30l30-10M40 40v30M40 40L10 30" stroke="white" stroke-width="1.5" fill="none"/></svg>
+</div>
+<div class="product-info">
+<div class="product-name">Ke Moja Tee</div>
+<div class="product-price">R220</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Ke%20Moja%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+<!-- Product 12 - CSS placeholder -->
+<div class="product-card reveal">
+<div class="product-img" style="background:linear-gradient(135deg,#f0f0f0 0%,#e0e0e0 100%);display:flex;align-items:center;justify-content:center;">
+<svg width="80" height="80" viewBox="0 0 80 80" fill="none" style="opacity:.25"><circle cx="40" cy="40" r="30" fill="#1a1a1a"/><path d="M25 40l10-10 10 20 10-10" stroke="white" stroke-width="2" fill="none"/></svg>
+</div>
+<div class="product-info">
+<div class="product-name">Classic Nike Tee</div>
+<div class="product-price">R1000</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20the%20Classic%20Nike%20Tee" target="_blank" class="btn-order">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+</div>
+
+</div>
+</div>
+</section>
+
+<!-- PROMO BANNER -->
+<section class="promo">
+<div class="container promo-content">
+<h2>🔥 15% OFF ALL T-SHIRTS!</h2>
+<p>Kasi ke Kasi — Fresh Styles, Real Vibes. Limited Time Only!</p>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20get%20the%2015%25%20discount%20on%20T-shirts" target="_blank" class="btn-promo">Claim Your Discount →</a>
+</div>
+</section>
+
+<!-- CUSTOM ORDERS -->
+<section class="custom-orders" id="custom">
+<div class="container">
+<div class="custom-inner">
+<div class="custom-text reveal">
+<div class="section-tag">Custom Orders</div>
+<h2>Create Your Own T-Shirt</h2>
+<p>We design and print custom T-shirts for individuals, events, and brands. Bring your vision to life with our premium printing service.</p>
+<ul class="feature-list">
+<li>
+<span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+Any design — logos, text, graphics, photos
+</li>
+<li>
+<span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+Bulk orders available for teams &amp; events
+</li>
+<li>
+<span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+Fast turnaround — ready in days, not weeks
+</li>
+<li>
+<span class="check"><svg viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg></span>
+Premium quality fabric &amp; printing
+</li>
+</ul>
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20a%20custom%20T-shirt%20design" target="_blank" class="btn-wa">
+<svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Request Custom Design
+</a>
+</div>
+<div class="custom-visual reveal">
+<div class="custom-card">
+<div class="custom-card-icon">
+<svg viewBox="0 0 24 24"><path d="M20 2H4c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-7 16H8v-2h5v2zm-4-4H8v-2h5v2h-3zm7 4h-2v-2h2v2zm0-4h-2v-2h2v2zm0-4h-2V6h2v4z"/></svg>
+</div>
+<h3>Your Design, Your Way</h3>
+<p>Send us your idea and we'll bring it to life on premium quality fabric.</p>
+<a href="https://wa.me/27824316130?text=Hi%20I%20have%20a%20custom%20T-shirt%20idea" target="_blank" class="btn-wa">
+<svg viewBox="0 0 24 24" style="width:18px;height:18px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Chat With Us
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- WHY CHOOSE US -->
+<section class="why-us">
+<div class="container">
+<div class="section-header reveal">
+<div class="section-tag">Why Us</div>
+<h2>Why Choose Skippa Corner?</h2>
+<p>We're more than just a T-shirt shop — we're your style partner.</p>
+</div>
+<div class="why-grid">
+<div class="why-card reveal">
+<div class="why-icon">
+<svg viewBox="0 0 24 24"><path d="M11.8 10.9c-2.27-.59-3-1.2-3-2.15 0-1.09 1.01-1.85 2.7-1.85 1.78 0 2.44.85 2.5 2.1h2.21c-.07-1.72-1.12-3.3-3.21-3.81V3h-3v2.16c-1.94.42-3.5 1.68-3.5 3.61 0 2.31 1.91 3.46 4.7 4.13 2.5.6 3 1.48 3 2.41 0 .69-.49 1.79-2.7 1.79-2.06 0-2.87-.92-2.98-2.1h-2.2c.12 2.19 1.76 3.42 3.68 3.83V21h3v-2.15c1.95-.37 3.5-1.5 3.5-3.55 0-2.84-2.43-3.81-4.7-4.4z"/></svg>
+</div>
+<h3>Affordable Prices</h3>
+<p>Quality T-shirts that don't break the bank. Premium looks at fair prices.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon">
+<svg viewBox="0 0 24 24"><path d="M12 3c-4.97 0-9 4.03-9 9s4.03 9 9 9c.83 0 1.5-.67 1.5-1.5 0-.39-.15-.74-.39-1.01-.23-.26-.38-.61-.38-1 0-.83.67-1.5 1.5-1.5H16c2.76 0 5-2.24 5-5 0-4.42-4.03-8-9-8zm-5.5 9c-.83 0-1.5-.67-1.5-1.5S5.67 9 6.5 9 8 9.67 8 10.5 7.33 12 6.5 12zm3-4C8.67 8 8 7.33 8 6.5S8.67 5 9.5 5s1.5.67 1.5 1.5S10.33 8 9.5 8zm5 0c-.83 0-1.5-.67-1.5-1.5S13.67 5 14.5 5s1.5.67 1.5 1.5S15.33 8 14.5 8zm3 4c-.83 0-1.5-.67-1.5-1.5S16.67 9 17.5 9s1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+</div>
+<h3>Custom Designs</h3>
+<p>Bring your own design or let us create one for you. Your vision, our craft.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon">
+<svg viewBox="0 0 24 24"><path d="M20 8h-3V4H3c-1.1 0-2 .9-2 2v11h2c0 1.66 1.34 3 3 3s3-1.34 3-3h6c0 1.66 1.34 3 3 3s3-1.34 3-3h2v-5l-3-4zM6 18.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5zm13.5-9l1.96 2.5H17V9.5h2.5zm-1.5 9c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/></svg>
+</div>
+<h3>Fast Delivery</h3>
+<p>Quick turnaround on all orders. We respect your time and deliver promptly.</p>
+</div>
+<div class="why-card reveal">
+<div class="why-icon">
+<svg viewBox="0 0 24 24"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/></svg>
+</div>
+<h3>Trusted Local Business</h3>
+<p>Proudly serving Soshanguve and beyond. Real people, real quality, real trust.</p>
+</div>
+</div>
+</div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact" id="contact">
+<div class="container">
+<div class="section-header reveal">
+<div class="section-tag">Get In Touch</div>
+<h2>Contact Us</h2>
+<p>Have questions? Reach out anytime — we're here to help!</p>
+</div>
+<div class="contact-grid">
+<div class="contact-info reveal">
+<h3>Let's Talk</h3>
+<div class="contact-item">
+<div class="contact-item-icon">
+<svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+</div>
+<div class="contact-item-text">
+<strong>Phone</strong>
++27 82 431 6130<br>+27 82 393 3483
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-item-icon">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</div>
+<div class="contact-item-text">
+<strong>WhatsApp</strong>
++27 82 393 3483
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-item-icon">
+<svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+</div>
+<div class="contact-item-text">
+<strong>Address</strong>
+1054 Tholakele Street, Block W,<br>Soshanguve, Pretoria
+</div>
+</div>
+<div class="contact-item">
+<div class="contact-item-icon">
+<svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+</div>
+<div class="contact-item-text">
+<strong>Email</strong>
+info@skippacorner.co.za
+</div>
+</div>
+<a href="https://wa.me/27824316130?text=Hi%20I%20have%20a%20question%20about%20SKIPPA%20CORNER" target="_blank" class="btn-wa" style="margin-top:10px;width:100%;justify-content:center;padding:14px 24px;font-size:1rem">
+<svg viewBox="0 0 24 24" style="width:20px;height:20px;fill:currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+Order on WhatsApp
+</a>
+</div>
+<div class="contact-form reveal">
+<form onsubmit="handleFormSubmit(event)">
+<div class="form-group">
+<label>Your Name</label>
+<input type="text" id="contactName" placeholder="Enter your full name" required>
+</div>
+<div class="form-group">
+<label>Phone Number</label>
+<input type="tel" id="contactPhone" placeholder="e.g. 082 123 4567" required>
+</div>
+<div class="form-group">
+<label>Message</label>
+<textarea id="contactMessage" placeholder="Tell us what you're looking for..." required></textarea>
+</div>
+<button type="submit" class="btn-submit">Send Message via WhatsApp</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+<div class="container">
+<div class="footer-inner">
+<div class="footer-brand">
+<span class="logo-main">SK<span style="color:var(--red)">I</span>PPA <span style="font-weight:400;font-size:.8em;opacity:.5">corner</span></span>
+<p>Premium T-Shirts &amp; Custom Designs</p>
+</div>
+<div class="footer-links">
+<a href="#home">Home</a>
+<a href="#shop">Shop</a>
+<a href="#custom">Custom</a>
+<a href="#contact">Contact</a>
+</div>
+</div>
+<div class="footer-bottom">
+<p>&copy; 2026 Skippa Corner. All rights reserved. | 1054 Tholakele Street, Block W, Soshanguve</p>
+</div>
+</div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/27824316130?text=Hi%20I%20want%20to%20order%20a%20T-shirt" target="_blank" class="floating-wa" aria-label="Chat on WhatsApp">
+<svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+</a>
+
+<script>
+// Mobile menu toggle
+function toggleMenu(){
+const nav=document.getElementById('mobileNav');
+const burger=document.getElementById('hamburger');
+nav.classList.toggle('open');
+burger.classList.toggle('active');
+document.body.style.overflow=nav.classList.contains('open')?'hidden':'';
+}
+
+// Header scroll effect
+const header=document.getElementById('header');
+window.addEventListener('scroll',()=>{
+if(window.scrollY>50){header.classList.add('scrolled')}
+else{header.classList.remove('scrolled')}
+});
+
+// Scroll reveal
+const reveals=document.querySelectorAll('.reveal');
+const revealObserver=new IntersectionObserver((entries)=>{
+entries.forEach(entry=>{
+if(entry.isIntersecting){
+entry.target.classList.add('visible');
+revealObserver.unobserve(entry.target);
+}
+});
+},{threshold:0.1,rootMargin:'0px 0px -50px 0px'});
+reveals.forEach(el=>revealObserver.observe(el));
+
+// Form submission → WhatsApp
+function handleFormSubmit(e){
+e.preventDefault();
+const name=document.getElementById('contactName').value.trim();
+const phone=document.getElementById('contactPhone').value.trim();
+const msg=document.getElementById('contactMessage').value.trim();
+const whatsappMsg=encodeURIComponent(`Hi, I'm ${name}. Phone: ${phone}. ${msg}`);
+window.open(`https://wa.me/27824316130?text=${whatsappMsg}`,'_blank');
+}
+</script>
+</body>
+</html>
+
